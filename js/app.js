@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "picolo:players";
+  const STORAGE_KEY = "habis:players";
+  const LEGACY_STORAGE_KEY = "picolo:players"; // fallback until habis:players is first saved
 
   const CATEGORY_META = {
     drink: { label: "Drink" },
@@ -62,7 +63,7 @@
 
   function loadPlayers() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) players = parsed.filter((p) => typeof p === "string");
@@ -179,7 +180,7 @@
   }
 
   function startGame() {
-    deck = shuffle(PICOLO_QUESTIONS);
+    deck = shuffle(QUESTIONS);
     deckIndex = -1;
     lastUsedPlayer = null;
     roundEndPending = false;
