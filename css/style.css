@@ -404,3 +404,35 @@ h2 {
     transition: none !important;
   }
 }
+
+/* PWA install button and update banner */
+#pwa-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+#pwa-bar > * { pointer-events: auto; }
+#pwa-bar [hidden] { display: none; }
+.pwa-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 12px 10px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 14px;
+}
+.pwa-hint { margin: 0; color: var(--text-2); font-size: 13px; text-align: center; }
