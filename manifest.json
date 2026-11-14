@@ -1,6 +1,6 @@
 {
-  "name": "Maingelas",
-  "short_name": "Maingelas",
+  "name": "Habis",
+  "short_name": "Habis",
   "description": "A drinking game with 1000 preloaded questions.",
   "start_url": "./index.html",
   "scope": "./",
